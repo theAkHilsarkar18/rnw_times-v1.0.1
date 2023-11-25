@@ -1,3 +1,6 @@
+import 'package:rnw_times/presentation/home_screen/home_screen.dart';
+import 'package:rnw_times/presentation/sign_in_screen/sign_in_screen.dart';
+
 import 'controller/sign_up_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:rnw_times/core/app_export.dart';
@@ -28,7 +31,8 @@ class SignUpScreen extends GetWidget<SignUpController> {
                               style: AppStyle.txtPlantagenetCherokee32)),
                       GestureDetector(
                           onTap: () {
-                            onTapRowgoogleone();
+                            // onTapRowgoogleone();
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen(),));
                           },
                           child: Container(
                               margin: getMargin(top: 27, right: 1),
@@ -117,19 +121,26 @@ class SignUpScreen extends GetWidget<SignUpController> {
                       Align(
                           alignment: Alignment.centerLeft,
                           child: Padding(
-                              padding: getPadding(left: 35, top: 36, right: 46),
-                              child: Row(children: [
+                              padding: EdgeInsets.only(top: 30),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
                                 Text("msg_already_have_an".tr,
                                     overflow: TextOverflow.ellipsis,
                                     textAlign: TextAlign.left,
                                     style: AppStyle.txtPoppinsRegular14),
                                 Padding(
                                     padding: getPadding(left: 6),
-                                    child: Text("lbl_sign_in".tr,
-                                        overflow: TextOverflow.ellipsis,
-                                        textAlign: TextAlign.left,
-                                        style: AppStyle
-                                            .txtPoppinsRegular14LightblueA200))
+                                    child: GestureDetector(
+                                      onTap: () {
+                                        Navigator.push(context, MaterialPageRoute(builder: (context) => SignInScreen(),));
+                                      },
+                                      child: Text("lbl_sign_in".tr,
+                                          overflow: TextOverflow.ellipsis,
+                                          textAlign: TextAlign.left,
+                                          style: AppStyle
+                                              .txtPoppinsRegular14LightblueA200),
+                                    ))
                               ]))),
                       Spacer(),
                       Container(

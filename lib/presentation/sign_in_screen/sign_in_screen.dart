@@ -1,3 +1,4 @@
+import '../sign_up_screen/sign_up_screen.dart';
 import 'controller/sign_in_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:rnw_times/core/app_export.dart';
@@ -120,9 +121,10 @@ class SignInScreen extends GetWidget<SignInController> {
                       Align(
                           alignment: Alignment.centerLeft,
                           child: Padding(
-                              padding: getPadding(
-                                  left: 39, top: 36, right: 52, bottom: 5),
-                              child: Row(children: [
+                              padding: EdgeInsets.only(top: 30),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
                                 Padding(
                                     padding: getPadding(bottom: 1),
                                     child: Text("msg_don_t_have_an_a".tr,
@@ -131,13 +133,19 @@ class SignInScreen extends GetWidget<SignInController> {
                                         style: AppStyle.txtPoppinsRegular14)),
                                 Padding(
                                     padding: getPadding(left: 7, top: 1),
-                                    child: Text("lbl_sign_up".tr,
-                                        overflow: TextOverflow.ellipsis,
-                                        textAlign: TextAlign.left,
-                                        style: AppStyle
-                                            .txtPoppinsRegular14LightblueA200))
+                                    child: GestureDetector(
+                                      onTap: () {
+                                        Navigator.push(context, MaterialPageRoute(builder: (context) => SignUpScreen(),));
+                                      },
+                                      child: Text("lbl_sign_up".tr,
+                                          overflow: TextOverflow.ellipsis,
+                                          textAlign: TextAlign.left,
+                                          style: AppStyle
+                                              .txtPoppinsRegular14LightblueA200),
+                                    ))
                               ])))
                     ]))));
+
   }
 
   onTapRowgoogleone() async {
